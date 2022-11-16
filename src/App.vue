@@ -29,6 +29,7 @@ export default {
         <li v-else> {{ movie.original_language }} </li>
         <li>{{ movie.original_title }} {{ movie.original_name }}</li>
         <li>{{ movie.vote_average }}</li>
+        <li><img :src="store.posterImgUrl + movie.poster_path" alt=""></li>
 
       </ul>
     </div>

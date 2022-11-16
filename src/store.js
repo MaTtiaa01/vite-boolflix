@@ -7,6 +7,7 @@ export const store = reactive({
     queryInput: "matrix",
     movieArr: null,
     language: "",
+    posterImgUrl: "http://image.tmdb.org/t/p/w342/",
     callApi() {
         const config = {
             method: 'get',
