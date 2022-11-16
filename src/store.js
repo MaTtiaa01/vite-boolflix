@@ -19,9 +19,8 @@ export const store = reactive({
             .then(function (response) {
                 console.log(response.data);
                 console.log(response.data.results);
+                this.movieArr = response.data.results
                 console.log(this.movieArr);
-                // this.movieArray = response.data.results
-                // console.log(this.movieArray);
             })
             .catch(function (error) {
                 console.log(error);
