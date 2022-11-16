@@ -1,6 +1,5 @@
 <script >
 import { store } from "./store";
-import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
 
 export default {
   name: "App",
@@ -26,6 +25,7 @@ export default {
       }
     },
     voteStar() {
+      // TOFIX alla prima ricerca in assoluto non funziona perchè l'array è ancora vuoto poi va tutto bene
       if (this.store.loaded === true) {
         this.starEl = ""
         for (let i = 0; i < Number(this.store.review); i++) {
@@ -60,11 +60,10 @@ export default {
         <li>
           <span id="star">
             {{ starEl }}
-            <!-- <font-awesome-icons icon="HatWizard" /> -->
           </span>
         </li>
         <li><img :src="store.posterImgUrl + movie.poster_path" alt=""></li>
-
+        <!-- <font-awesome-icon icon="fa-solid fa-user-secret" /> -->
 
       </ul>
     </div>
