@@ -22,9 +22,13 @@ export default {
   </header>
   <main>
     <div>
-      <ul>
-        <li v-for="movie in store.movieArr">{{ movie.title }} {{ movie.original_language }} {{ movie.original_title }}
-          {{ movie.vote_average }}</li>
+      <ul v-for="movie in store.movieArr">
+        <li>{{ movie.title }}</li>
+        <li v-if="movie.original_language === 'en'"> <img src="./assets/img/flag-uk.svg.png" alt=""> </li>
+        <li v-else-if="movie.original_language === 'it'"><img src="./assets/img/flag-italy.svg.png" alt=""></li>
+        <li v-else> {{ movie.original_language }}</li>
+        <li>{{ movie.original_title }}</li>
+        <li>{{ movie.vote_average }}</li>
 
       </ul>
     </div>
