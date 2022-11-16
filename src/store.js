@@ -1,0 +1,25 @@
+import { reactive } from "vue";
+import axios from "axios";
+
+export const store = reactive({
+    api_key: "55d4e1ed5baa64ec6d42d7deb753d1ab",
+    queryInput: "matrix",
+    callApi() {
+        const config = {
+            method: 'get',
+            url: 'https://api.themoviedb.org/3/search/movie',
+            params: {
+                api_key: this.api_key,
+                query: this.queryInput,
+            }
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+})
