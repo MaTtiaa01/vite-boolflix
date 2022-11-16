@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const store = reactive({
     api_key: "55d4e1ed5baa64ec6d42d7deb753d1ab",
+    htmlsStar: null,
     loaded: false,
     review: "",
     queryInput: "",
@@ -21,10 +22,10 @@ export const store = reactive({
 
         axios(config)
             .then((response) => {
-                console.log(response.data);
-                console.log(response.data.results);
+                //console.log(response.data);
+                //console.log(response.data.results);
                 this.movieArr = response.data.results;
-                console.log(this.movieArr);
+                //console.log(this.movieArr);
                 this.loaded = true
             })
             .catch(function (error) {

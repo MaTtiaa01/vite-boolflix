@@ -1,11 +1,16 @@
 <script >
 import { store } from "./store";
+import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
 
 export default {
   name: "App",
+  component: {
+
+  },
   data() {
     return {
-      store
+      store,
+      starEl: "",
     }
   },
   methods: {
@@ -14,14 +19,24 @@ export default {
       if (this.store.loaded === true) {
 
         this.store.movieArr.forEach(movie => {
-          console.log(movie.vote_average);
+          //console.log(movie.vote_average);
           this.store.review = Math.ceil(Number(movie.vote_average) / 2);
-          console.log(this.store.review);
+          //console.log(this.store.review);
         });
+      }
+    },
+    voteStar() {
+      if (this.store.loaded === true) {
+        this.starEl = ""
+        for (let i = 0; i < Number(this.store.review); i++) {
+          this.starEl += "icon"
+          //console.log(Number(this.store.review));
+        }
       }
     }
   },
   mounted() {
+
   }
 }
 </script>
@@ -30,8 +45,8 @@ export default {
   <header>
     <div class="form_control">
       <input v-model="store.queryInput" type="text" placeholder="Serach movie"
-        @keyup.enter="store.callApi(); voteTransform()">
-      <button @click.prevent="store.callApi(); voteTransform()">click</button>
+        @keyup.enter="store.callApi(); voteTransform(); voteStar()">
+      <button @click.prevent="store.callApi(); voteTransform(); voteStar()">click</button>
     </div>
   </header>
   <main>
@@ -42,8 +57,14 @@ export default {
         <li v-else-if="movie.original_language === 'it'"><img src="./assets/img/flag-italy.svg.png" alt=""></li>
         <li v-else> {{ movie.original_language }} </li>
         <li>{{ movie.original_title }} {{ movie.original_name }}</li>
-        <li>{{ movie.vote_average }}</li>
+        <li>
+          <span id="star">
+            {{ starEl }}
+            <!-- <font-awesome-icons icon="HatWizard" /> -->
+          </span>
+        </li>
         <li><img :src="store.posterImgUrl + movie.poster_path" alt=""></li>
+
 
       </ul>
     </div>
