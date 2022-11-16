@@ -17,13 +17,14 @@ export default {
   <header>
     <div class="form_control">
       <input v-model="store.queryInput" type="text" placeholder="Serach movie">
-      <button @click="store.callApi(store.movieArr)">click</button>
+      <button @click="store.callApi()">click</button>
     </div>
   </header>
   <main>
     <div>
       <ul>
-        <li v-for="movie in store.movieArr">{{ movie.title }}</li>
+        <li v-for="movie in store.movieArr">{{ movie.title }} {{ movie.original_language }} {{ movie.original_title }}
+          {{ movie.vote_average }}</li>
 
       </ul>
     </div>
