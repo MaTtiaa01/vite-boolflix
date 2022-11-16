@@ -4,6 +4,7 @@ import axios from "axios";
 export const store = reactive({
     api_key: "55d4e1ed5baa64ec6d42d7deb753d1ab",
     queryInput: "matrix",
+    movieArr: null,
     callApi() {
         const config = {
             method: 'get',
@@ -17,6 +18,10 @@ export const store = reactive({
         axios(config)
             .then(function (response) {
                 console.log(response.data);
+                console.log(response.data.results);
+                console.log(this.movieArr);
+                // this.movieArray = response.data.results
+                // console.log(this.movieArray);
             })
             .catch(function (error) {
                 console.log(error);
