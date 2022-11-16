@@ -8,6 +8,19 @@ export default {
       store
     }
   },
+  methods: {
+    voteTransform() {
+      // TOFIX alla prima ricerca in assoluto non funziona perchè l'array è ancora vuoto poi va tutto bene
+      if (this.store.loaded === true) {
+
+        this.store.movieArr.forEach(movie => {
+          console.log(movie.vote_average);
+          this.store.review = Math.ceil(Number(movie.vote_average) / 2);
+          console.log(this.store.review);
+        });
+      }
+    }
+  },
   mounted() {
   }
 }
@@ -16,8 +29,9 @@ export default {
 <template>
   <header>
     <div class="form_control">
-      <input v-model="store.queryInput" type="text" placeholder="Serach movie" @keyup.enter="store.callApi()">
-      <button @click.prevent="store.callApi()">click</button>
+      <input v-model="store.queryInput" type="text" placeholder="Serach movie"
+        @keyup.enter="store.callApi(); voteTransform()">
+      <button @click.prevent="store.callApi(); voteTransform()">click</button>
     </div>
   </header>
   <main>

@@ -4,7 +4,8 @@ import axios from "axios";
 export const store = reactive({
     api_key: "55d4e1ed5baa64ec6d42d7deb753d1ab",
     loaded: false,
-    queryInput: "matrix",
+    review: "",
+    queryInput: "",
     movieArr: null,
     language: "",
     posterImgUrl: "http://image.tmdb.org/t/p/w342/",
@@ -29,5 +30,5 @@ export const store = reactive({
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    },
 })
