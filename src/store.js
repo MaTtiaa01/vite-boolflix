@@ -10,7 +10,7 @@ export const store = reactive({
     callApi() {
         const config = {
             method: 'get',
-            url: 'https://api.themoviedb.org/3/search/movie',
+            url: 'https://api.themoviedb.org/3/search/multi',
             params: {
                 api_key: this.api_key,
                 query: this.queryInput,
