@@ -27,13 +27,11 @@ export const store = reactive({
                 this.movieArr = response.data.results;
                 //console.log(this.movieArr);
                 this.loaded = true
+                this.queryInput = ""
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-
-
 
     },
 })
