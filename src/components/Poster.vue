@@ -9,6 +9,7 @@ export default {
     },
     methods: {
         voteTransform(number) {
+            //METTERE UN FILTRO PER VEDERE SE è UN NUMERO
             return Math.ceil(Number(number) / 2);
         }
     },

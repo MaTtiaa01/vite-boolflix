@@ -22,8 +22,10 @@ export const store = reactive({
 
         axios(config)
             .then((response) => {
+                // FILTRO DA METTERE O CAMBIARE L'URL O FARE DUE CHIAMATE
                 //console.log(response.data);
                 //console.log(response.data.results);
+
                 this.movieArr = response.data.results;
                 //console.log(this.movieArr);
                 this.loaded = true
