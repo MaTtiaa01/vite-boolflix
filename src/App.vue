@@ -34,7 +34,7 @@ export default {
   </header>
   <main>
     <div>
-      <ul v-if="store.loaded" v-for="movie in store.movieArr">
+      <ul v-for="movie in store.movieArr">
         <li>{{ movie.title }} {{ movie.name }}</li>
         <li v-if="movie.original_language === 'en'"> <img src="./assets/img/flag-uk.svg.png" alt=""> </li>
         <li v-else-if="movie.original_language === 'it'"><img src="./assets/img/flag-italy.svg.png" alt=""></li>
