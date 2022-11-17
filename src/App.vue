@@ -63,7 +63,7 @@ export default {
           </span>
         </li>
         <li><img :src="store.posterImgUrl + movie.poster_path" alt=""></li>
-        <!-- <font-awesome-icon icon="fa-solid fa-user-secret" /> -->
+        <font-awesome-icon icon="fa-solid fa-star" />
 
       </ul>
     </div>
