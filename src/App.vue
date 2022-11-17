@@ -1,10 +1,11 @@
 <script >
 import { store } from "./store";
+import AppHeader from "./components/AppHeader.vue";
 
 export default {
   name: "App",
-  component: {
-
+  components: {
+    AppHeader,
   },
   data() {
     return {
@@ -26,12 +27,9 @@ export default {
 </script>
 
 <template>
-  <header>
-    <div class="form_control">
-      <input v-model="store.queryInput" type="text" placeholder="Serach movie" @keyup.enter="store.callApi()">
-      <button @click.prevent="store.callApi()">click</button>
-    </div>
-  </header>
+
+  <AppHeader></AppHeader>
+
   <main>
     <div>
       <ul v-for="movie in store.movieArr">
