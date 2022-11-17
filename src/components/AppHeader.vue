@@ -90,6 +90,8 @@ header {
     }
 
     .head_right {
+        padding-right: 2rem;
+
         .form_control {
             input {
                 border: 1px solid $nb-light;

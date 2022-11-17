@@ -67,6 +67,8 @@ export default {
 
                 ul {
                     li {
+                        margin-top: 1rem;
+
                         img {
                             width: 20px;
                         }
