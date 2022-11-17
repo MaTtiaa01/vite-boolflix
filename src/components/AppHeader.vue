@@ -94,6 +94,7 @@ header {
             input {
                 border: 1px solid $nb-light;
                 background-color: $nb-primary;
+                color: $nb-lighter;
             }
 
             button {
