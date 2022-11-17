@@ -54,7 +54,7 @@ export default {
 .col {
 
     .box {
-        height: 400px;
+        height: 500px;
 
         &:hover {
             .front {
@@ -83,7 +83,7 @@ export default {
 
         img {
             object-fit: cover;
-            max-height: 400px;
+            max-height: 500px;
         }
     }
 }

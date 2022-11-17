@@ -11,15 +11,28 @@ export default {
             store
         }
     },
+    methods: {
+        horizonatlScroll() {
+            const scrollContainer = document.getElementById('scrollEl');
+
+            scrollContainer.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY;
+            });
+        }
+    },
+    mounted() {
+        this.horizonatlScroll()
+    }
 
 }
 </script>
 
 <template>
     <main>
-        <div class="container">
+        <div id="scrollEl" class="container">
             <h2 class="text-uppercase py-2 text-white">original netflix</h2>
-            <div class="row row-cols-4 g-4">
+            <div class="row d-flex row-cols-4 g-4">
                 <Poster></Poster>
             </div>
         </div>
@@ -34,9 +47,10 @@ export default {
 
 .container {
 
+
     .row {
         flex-wrap: nowrap;
-        overflow-x: auto;
+        overflow-x: scroll;
 
     }
 }
