@@ -28,7 +28,7 @@ export default {
 <template>
   <header>
     <div class="form_control">
-      <input v-model="store.queryInput" type="text" placeholder="Serach movie" @keyup.enter="store.callApi()">
+      <input v-model="store.queryInput" type="text" placeholder="Serach movie">
       <button @click.prevent="store.callApi()">click</button>
     </div>
   </header>
