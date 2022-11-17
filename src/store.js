@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const store = reactive({
     api_key: "55d4e1ed5baa64ec6d42d7deb753d1ab",
-    htmlsStar: null,
+    htmlStar: `<font-awesome-icon icon="fa-solid fa-star" />`,
     loaded: false,
     review: "",
     queryInput: "",
