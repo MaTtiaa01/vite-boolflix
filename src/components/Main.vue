@@ -50,7 +50,7 @@ export default {
 
     .row {
         flex-wrap: nowrap;
-        overflow-x: scroll;
+        overflow-x: auto;
 
     }
 }
