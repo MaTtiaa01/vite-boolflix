@@ -11,6 +11,16 @@ export const store = reactive({
     movieArr: null,
     language: "",
     posterImgUrl: "http://image.tmdb.org/t/p/w342/",
+    voteTransform() {
+        if (this.loaded) {
+
+            this.movieArr.forEach(movie => {
+                //console.log(movie.vote_average);
+                this.review = Math.ceil(Number(movie.vote_average) / 2);
+                //console.log(this.store.review);
+            });
+        }
+    },
     callApi() {
         const config = {
             method: 'get',
@@ -28,9 +38,14 @@ export const store = reactive({
                 this.movieArr = response.data.results;
                 //console.log(this.movieArr);
                 this.loaded = true
+                this.voteTransform()
             })
             .catch(function (error) {
                 console.log(error);
             });
+
+
+
+
     },
 })
