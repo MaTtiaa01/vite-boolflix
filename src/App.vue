@@ -12,13 +12,12 @@ export default {
     }
   },
   methods: {
-
-  },
-  computed: {
     voteTransform(number) {
       return number.Math.ceil(Number(movie.vote_average) / 2);
-
     }
+  },
+  computed: {
+
   },
   mounted() {
 
@@ -43,7 +42,6 @@ export default {
         <li>{{ movie.original_title }} {{ movie.original_name }}</li>
         <li v-for="n in voteTransform(movie.vote_average)">
           <font-awesome-icon icon="fa-solid fa-star" />
-          {{ movie.vote_average }}
         </li>
         <li><img :src="store.posterImgUrl + movie.poster_path" alt=""></li>
 
