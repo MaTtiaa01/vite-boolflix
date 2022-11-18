@@ -5,7 +5,8 @@ import axios from "axios";
 export const store = reactive({
     api_key: "55d4e1ed5baa64ec6d42d7deb753d1ab",
     htmlStar: `<font-awesome-icon icon="fa-solid fa-star" />`,
-    loaded: false,
+    loadedMovie: false,
+    loadedShow: false,
     queryInput: "",
     movieArr: null,
     showArr: null,
@@ -29,7 +30,7 @@ export const store = reactive({
 
                 this.movieArr = response.data.results;
                 //console.log(this.movieArr);
-                this.loaded = true
+                this.loadedMovie = true
                 this.queryInput = ""
             })
             .catch(function (error) {
@@ -53,7 +54,7 @@ export const store = reactive({
                 //console.log(response.data.results);
 
                 this.showArr = response.data.results;
-                this.loaded = true
+                this.loadedShow = true
                 this.queryInput = ""
             })
             .catch(function (error) {
