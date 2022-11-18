@@ -12,11 +12,14 @@ export default {
             return Math.ceil(Number(number) / 2);
         }
     },
+    mounted() {
+
+    }
 }
 </script>
 
 <template>
-    <div v-if="store.loadedMovie" class="container">
+    <div v-if="store.loadedMovie" id="scroll" class="container scrollEl">
         <h2 class="text-uppercase py-2 ">movies</h2>
 
         <div class="row movies d-flex row-cols-4 g-4">
@@ -53,7 +56,7 @@ export default {
 
         </div>
     </div>
-    <div v-if="store.loadedShow" class="container">
+    <div v-if="store.loadedShow" class="container scrollEl">
         <h2 class="text-uppercase py-2 ">tv shows</h2>
 
         <div class="row shows d-flex row-cols-4 g-4">

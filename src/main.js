@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import './style.scss'
 import App from './App.vue'
-// import { HScroll } from "@koas/v-hscroll";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'

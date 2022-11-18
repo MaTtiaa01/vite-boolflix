@@ -11,26 +11,13 @@ export default {
             store
         }
     },
-    methods: {
-        // horizonatlScroll() {
-        //     const scrollContainer = document.getElementById('scrollEl');
-
-        //     scrollContainer.addEventListener('wheel', (evt) => {
-        //         evt.preventDefault();
-        //         scrollContainer.scrollLeft += evt.deltaY;
-        //     });
-        // }
-    },
-    mounted() {
-        // this.horizonatlScroll()
-    }
 
 }
 </script>
 
 <template>
     <main>
-        <div id="scrollEl" class="container">
+        <div class="container">
 
             <Poster></Poster>
 
