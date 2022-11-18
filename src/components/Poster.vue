@@ -17,32 +17,79 @@ export default {
 </script>
 
 <template>
-    <div v-for="movie in store.movieArr" class="col">
-        <div class="box">
-            <div class="front">
-                <img :src="store.posterImgUrl + movie.poster_path" alt="">
+    <div class="container">
+        <h2 class="text-uppercase py-2 ">movies</h2>
+
+        <div class="row movies d-flex row-cols-4 g-4">
+            <div v-for="movie in store.movieArr" class="col ">
+                <div class="box">
+                    <div class="front">
+                        <img :src="store.posterImgUrl + movie.poster_path" alt="">
+                    </div>
+                    <div class="back">
+                        <ul>
+                            <li>Title: {{ movie.title }}</li>
+                            <li v-if="movie.original_language === 'en'"> <img src="../assets/img/flag-uk.svg.png"
+                                    alt="">
+                            </li>
+                            <li v-else-if="movie.original_language === 'it'"><img src="../assets/img/flag-italy.svg.png"
+                                    alt="">
+                            </li>
+                            <li v-else> {{ movie.original_language }} </li>
+                            <li>Original title: {{ movie.original_title }} </li>
+                            <li>
+                                <span v-for="n in voteTransform(movie.vote_average)">
+                                    <font-awesome-icon icon="fa-solid fa-star" />
+                                </span>
+                            </li>
+                            <li>
+                                Overview: {{ movie.overview }}
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="back">
-                <ul>
-                    <li>Title: {{ movie.title }} {{ movie.name }}</li>
-                    <li v-if="movie.original_language === 'en'"> <img src="../assets/img/flag-uk.svg.png" alt=""> </li>
-                    <li v-else-if="movie.original_language === 'it'"><img src="../assets/img/flag-italy.svg.png" alt="">
-                    </li>
-                    <li v-else> {{ movie.original_language }} </li>
-                    <li>Original title: {{ movie.original_title }} {{ movie.original_name }}</li>
-                    <li>
-                        <span v-for="n in voteTransform(movie.vote_average)">
-                            <font-awesome-icon icon="fa-solid fa-star" />
-                        </span>
-                    </li>
-                    <li>
-                        Overview: {{ movie.overview }}
-                    </li>
+
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-uppercase py-2 ">tv shows</h2>
+
+        <div class="row shows d-flex row-cols-4 g-4">
+
+            <div v-for="show in store.showArr" class="col ">
+                <div class="box">
+                    <div class="front">
+                        <img :src="store.posterImgUrl + show.poster_path" alt="">
+                    </div>
+                    <div class="back">
+                        <ul>
+                            <li>Title: {{ show.name }}</li>
+                            <li v-if="show.original_language === 'en'"> <img src="../assets/img/flag-uk.svg.png" alt="">
+                            </li>
+                            <li v-else-if="show.original_language === 'it'"><img src="../assets/img/flag-italy.svg.png"
+                                    alt="">
+                            </li>
+                            <li v-else> {{ show.original_language }} </li>
+                            <li>Original title: {{ show.original_name }} </li>
+                            <li>
+                                <span v-for="n in voteTransform(show.vote_average)">
+                                    <font-awesome-icon icon="fa-solid fa-star" />
+                                </span>
+                            </li>
+                            <li>
+                                Overview: {{ show.overview }}
+                            </li>
 
 
-                </ul>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 
 </template>
@@ -52,40 +99,54 @@ export default {
 @use "../../node_modules/bootstrap";
 @use "../assets/scss/Variables.scss" as *;
 
-.col {
+.container {
+    h2 {
+        color: $nb-lighter;
+    }
 
-    .box {
-        height: 500px;
+    .row {
+        margin-bottom: 2rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
 
-        &:hover {
-            .front {
-                display: none;
-            }
 
-            .back {
-                display: inline-block;
-                color: $nb-lighter;
+        .col {
 
-                ul {
-                    li {
-                        margin-top: 1rem;
+            .box {
+                height: 500px;
 
-                        img {
-                            width: 20px;
+                &:hover {
+                    .front {
+                        display: none;
+                    }
+
+                    .back {
+                        display: inline-block;
+                        color: $nb-lighter;
+
+                        ul {
+                            li {
+                                margin-top: 1rem;
+
+                                img {
+                                    width: 20px;
+                                }
+                            }
                         }
                     }
+                }
+
+                .back {
+                    display: none;
+                }
+
+                img {
+                    object-fit: cover;
+                    max-height: 500px;
                 }
             }
         }
 
-        .back {
-            display: none;
-        }
-
-        img {
-            object-fit: cover;
-            max-height: 500px;
-        }
     }
 }
 </style>

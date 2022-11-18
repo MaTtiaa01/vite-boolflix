@@ -31,8 +31,8 @@ export default {
             <div class="head_right d-flex align-items-center ">
                 <div class="form_control me-3">
                     <input v-model="store.queryInput" type="text" placeholder="Serach movie"
-                        @keyup.enter="store.callApi()">
-                    <button @click.prevent="store.callApi()">
+                        @keyup.enter="store.callApiMovie(); store.callApiShow()">
+                    <button @click.prevent="store.callApiMovie(); store.callApiShow()">
                         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                     </button>
                 </div>
