@@ -10,10 +10,14 @@ export default {
     methods: {
         voteTransform(number) {
             return Math.ceil(Number(number) / 2);
+        },
+        checkAndTrim(text) {
+            const new_text = text.slice(0, 300) + '...'
+            return new_text
+
         }
     },
     mounted() {
-
     }
 }
 </script>
@@ -31,8 +35,7 @@ export default {
                     <div class="back">
                         <ul>
                             <li>Title: {{ movie.title }}</li>
-                            <li v-if="movie.original_language === 'en'"> <img src="../assets/img/flag-uk.svg.png"
-                                    alt="">
+                            <li v-if="movie.original_language === 'en'"> <img src="../assets/img/flag-uk.svg.png" alt="">
                             </li>
                             <li v-else-if="movie.original_language === 'it'"><img src="../assets/img/flag-italy.svg.png"
                                     alt="">
@@ -44,10 +47,12 @@ export default {
                                     <font-awesome-icon icon="fa-solid fa-star" />
                                 </span>
                             </li>
-                            <li>
+                            <li v-if="movie.overview.length > 300">
+                                Overview: {{ checkAndTrim(movie.overview) }}
+                            </li>
+                            <li v-else>
                                 Overview: {{ movie.overview }}
                             </li>
-
 
                         </ul>
                     </div>
@@ -81,7 +86,10 @@ export default {
                                     <font-awesome-icon icon="fa-solid fa-star" />
                                 </span>
                             </li>
-                            <li>
+                            <li v-if="show.overview.length > 300">
+                                Overview: {{ checkAndTrim(show.overview) }}
+                            </li>
+                            <li v-else>
                                 Overview: {{ show.overview }}
                             </li>
 
@@ -93,7 +101,6 @@ export default {
         </div>
 
     </div>
-
 </template>
 
 
