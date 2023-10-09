@@ -7,5 +7,12 @@ pipeline {
       }
     }
 
+    stage('') {
+      steps {
+        sh '''npm I
+npm run build'''
+      }
+    }
+
   }
 }
